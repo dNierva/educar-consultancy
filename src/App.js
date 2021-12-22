@@ -1,10 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GlobalStyle from './utils/globalStyles';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
 import SiteInfo from './components/SiteInfo';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Projects from './pages/Projects';
+import Project from './pages/Project';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -57,9 +59,10 @@ const theme = createTheme({
 		},
 		h4: {
 			fontFamily: "Barlow Condensed, sans-serif",
-			fontWeight: 700,
+			fontWeight: 500,
 			fontSize: "1em",
-			textTransform: "uppercase"
+			textTransform: "uppercase",
+			color: "#2c3e50"
 		},
 		subtitle1: {
 			fontFamily: "Barlow Condensed, sans-serif",
@@ -95,16 +98,20 @@ const theme = createTheme({
 
 function App() {
 	return (
-		<Fragment>
+		<ThemeProvider theme={theme}>
 			<GlobalStyle />
-			<ThemeProvider theme={theme}>
-				<Navbar />
-				<Hero />
-				<Home />
-				<SiteInfo />
-				<Footer />
-			</ThemeProvider>
-		</Fragment>
+			<Navbar />
+			<Router>
+				<Routes>
+					<Route path='/' exact element={<Home />} />
+					<Route path='/projects' element={<Projects />} />
+					<Route path='/projects/:id' element={<Project />} />
+				</Routes>
+			</Router>
+			<SiteInfo />
+			<Footer />
+		
+		</ThemeProvider>
 	);
 }
 
