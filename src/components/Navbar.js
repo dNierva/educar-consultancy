@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -17,6 +18,10 @@ import {
     ListItemText,
     Container,
 } from '@mui/material';
+
+const linkStyle = {
+    textDecoration: "none"
+}
 
 function Navbar() {
     const [open, setOpen] = useState(false);
@@ -37,17 +42,61 @@ function Navbar() {
             onKeyDown={handleDrawerClose}
         >
             <List>
-                {['M3 Systec', 'PTS Schools', 'Projects', 'Contact'].map((text, index) => (
-                <ListItem button key={text}>
-                    <ListItemText 
-                        primary={text}
-                        sx={{
-                            textTransform: 'uppercase',
-                            color: '#2980B9',
-                        }} 
-                    />
+                <ListItem button>
+                    <Link to="/m3systec" style={linkStyle}>
+                        <ListItemText 
+                            primary="M3 Systec"
+                            sx={{
+                                textTransform: 'uppercase',
+                                color: '#2980B9',
+                            }} 
+                        />
+                    </Link>
                 </ListItem>
-                ))}
+                <ListItem button>
+                    <Link to="/ptsschools" style={linkStyle}>
+                        <ListItemText 
+                            primary="PTS Schools"
+                            sx={{
+                                textTransform: 'uppercase',
+                                color: '#2980B9',
+                            }} 
+                        />
+                    </Link>
+                </ListItem>
+                <ListItem button>
+                    <Link to="/projects" style={linkStyle}>
+                        <ListItemText 
+                            primary="Projects"
+                            sx={{
+                                textTransform: 'uppercase',
+                                color: '#2980B9',
+                            }} 
+                        />
+                    </Link>
+                </ListItem>
+                <ListItem button>
+                    <Link to="/about" style={linkStyle}>
+                        <ListItemText 
+                            primary="About Us"
+                            sx={{
+                                textTransform: 'uppercase',
+                                color: '#2980B9',
+                            }} 
+                        />
+                    </Link>
+                </ListItem>
+                <ListItem button>
+                    <Link to="/contact" style={linkStyle}>
+                        <ListItemText 
+                            primary="Contact Us"
+                            sx={{
+                                textTransform: 'uppercase',
+                                color: '#2980B9',
+                            }} 
+                        />
+                    </Link>
+                </ListItem>
             </List>
         </Box>
     );

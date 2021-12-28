@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import {
     Typography,
@@ -13,7 +13,12 @@ import {
     ListItem,
     ListItemIcon,
     ListItemText,
-    Divider
+    Divider,
+    FormGroup,
+    FormControlLabel,
+    Checkbox,
+    FormControl,
+    FormLabel
 } from '@mui/material';
 
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -53,10 +58,27 @@ const Content = styled.div`
 `;
 
 function Contact () {
-    const [alignment, setAlignment] = React.useState('web');
+    const [formType, setFormType] = useState('general');
+    const [state, setState] = React.useState({
+        gilad: false,
+        jason: false,
+        antoine: false,
+    });
 
-    const handleChange = (event, newAlignment) => {
-        setAlignment(newAlignment);
+    const handleCheckbox = (event) => {
+        setState({
+            ...state,
+            [event.target.name]: event.target.checked,
+        });
+    };
+
+    const { gilad, jason, antoine } = state;
+    const error = [gilad, jason, antoine].filter((v) => v).length < 1;
+
+    const handleChange = (event, newFormType) => {
+        console.log("event: ", event);
+        console.log("newFormType: ", newFormType);
+        setFormType(newFormType);
     };
 
     return (
@@ -82,93 +104,178 @@ function Contact () {
             <Box mt={8} mb={2} sx={{ textAlign: 'center'}}>
                 <ToggleButtonGroup
                     color="primary"
-                    value={alignment}
+                    value={formType}
                     exclusive
                     onChange={handleChange}
                 >
-                    <ToggleButton value="web">General Inquiry Form</ToggleButton>
-                    <ToggleButton value="android">Project Inquiry Form</ToggleButton>
+                    <ToggleButton value="general">General Inquiry Form</ToggleButton>
+                    <ToggleButton value="project">Project Inquiry Form</ToggleButton>
                 </ToggleButtonGroup>
             </Box>
-            <Grid container spacing={2} mb={8}>
-                <Grid item xs={12} md={8}>
-                    <Box mt={2} p={4} sx={{ backgroundColor: 'rgba(255, 255, 255, 0.4)' }}>
-                        <TextField fullWidth id="standard-basic" label="Name" variant="outlined" margin="normal" />
-                        <TextField fullWidth id="standard-basic" label="Email" variant="outlined" margin="normal" />
-                        <TextField fullWidth multiline minRows="4" id="standard-basic" label="Message" variant="outlined" margin="normal" />
-                        <Button variant="contained" size="large" color="secondary" sx={{ margin: "2rem 0"}}>
-                            Send Message
-                        </Button>
-                    </Box>
+
+            { formType === "general" ?
+
+                <Grid container spacing={2} mb={8}>
+                    <Grid item xs={12} md={8}>
+                        <Box mt={2} p={4} sx={{ backgroundColor: 'rgba(255, 255, 255, 0.4)' }}>
+                            <TextField fullWidth id="standard-basic" label="Name" variant="outlined" margin="normal" />
+                            <TextField fullWidth id="standard-basic" label="Email" variant="outlined" margin="normal" />
+                            <TextField fullWidth multiline minRows="4" id="standard-basic" label="Message" variant="outlined" margin="normal" />
+                            <Button variant="contained" size="large" color="secondary" sx={{ margin: "2rem 0"}}>
+                                Send Message
+                            </Button>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} md={4}>
+                        <List sx={{ width: '100%', margin: '1rem 0 0 0' }}>
+                            <ListItem alignItems="flex-start">
+                                <ListItemIcon>
+                                    <PhoneIcon />
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Phone Numbers"
+                                    secondary={
+                                        <Typography
+                                            sx={{ display: 'inline' }}
+                                            component="span"
+                                            variant="body2"
+                                            color="text.primary"
+                                        >
+                                            +63 966 1234 123 <br />
+                                            +63 966 4321 321
+                                        </Typography>
+                                    }
+                                />
+                            </ListItem>
+
+                            <Divider variant="inset" component="li" />
+
+                            <ListItem alignItems="flex-start">
+                                <ListItemIcon>
+                                    <MailOutlineIcon />
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Email Address"
+                                    secondary={
+                                        <Typography
+                                            sx={{ display: 'inline' }}
+                                            component="span"
+                                            variant="body2"
+                                            color="text.primary"
+                                        >
+                                            info@educar-consultancy.com <br />
+                                            support@educar-consultancy.com
+                                        </Typography>
+                                    }
+                                />
+                            </ListItem>
+
+                            <Divider variant="inset" component="li" />
+
+                            <ListItem alignItems="flex-start">
+                                <ListItemIcon>
+                                    <LocationOnIcon />
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Location"
+                                    secondary={
+                                        <Typography
+                                            sx={{ display: 'inline' }}
+                                            component="span"
+                                            variant="body2"
+                                            color="text.primary"
+                                        >
+                                            1104 Alabang Business Tower, Madrigal Business Park
+                                            1216 Acacia Ave., Alabang, Muntinlupa City, 1780
+                                        </Typography>
+                                    }
+                                />
+                            </ListItem>
+                        </List>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} md={4}>
-                    <List sx={{ width: '100%', margin: '1rem 0 0 0' }}>
-                        <ListItem alignItems="flex-start">
-                            <ListItemIcon>
-                                <PhoneIcon />
-                            </ListItemIcon>
-                            <ListItemText
-                                primary="Phone Numbers"
-                                secondary={
-                                    <Typography
-                                        sx={{ display: 'inline' }}
-                                        component="span"
-                                        variant="body2"
-                                        color="text.primary"
-                                    >
-                                        +63 966 1234 123 <br />
-                                        +63 966 4321 321
-                                    </Typography>
-                                }
-                            />
-                        </ListItem>
 
-                        <Divider variant="inset" component="li" />
+                :
+                <Box mb={8}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} md={6}>
+                            <TextField fullWidth id="standard-basic" label="Name" variant="outlined" margin="normal" />
+                            <TextField fullWidth id="standard-basic" label="Email" variant="outlined" margin="normal" />
+                            <FormControl
+                                required
+                                component="fieldset"
+                                variant="standard"
+                                error={error}
+                                fullWidth
+                                sx={{ mt: 4 }}
+                            >
+                                <FormLabel component="legend">What sort of project do you need help with?</FormLabel>
+                                <FormGroup>
+                                    <FormControlLabel
+                                        control={
+                                        <Checkbox checked={gilad} onChange={handleCheckbox} name="gilad" />
+                                        }
+                                        label="Consulting and project management"
+                                        labelPlacement="start"
+                                        sx={{ justifyContent: "space-between", margin:'1rem 0 0 0', borderBottom: "1px solid rgba(0, 0, 0, 0.1)" }}
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                        <Checkbox checked={jason} onChange={handleCheckbox} name="jason" />
+                                        }
+                                        label="Professional outsourcing"
+                                        labelPlacement="start"
+                                        sx={{ justifyContent: "space-between", margin:'1rem 0 0 0', borderBottom: "1px solid rgba(0, 0, 0, 0.1)" }}
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                        <Checkbox checked={antoine} onChange={handleCheckbox} name="antoine" />
+                                        }
+                                        label="Software development"
+                                        labelPlacement="start"
+                                        sx={{ justifyContent: "space-between", margin:'1rem 0 0 0', borderBottom: "1px solid rgba(0, 0, 0, 0.1)" }}
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                        <Checkbox checked={antoine} onChange={handleCheckbox} name="antoine" />
+                                        }
+                                        label="Web design &amp; development"
+                                        labelPlacement="start"
+                                        sx={{ justifyContent: "space-between", margin:'1rem 0 0 0', borderBottom: "1px solid rgba(0, 0, 0, 0.1)" }}
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                        <Checkbox checked={antoine} onChange={handleCheckbox} name="antoine" />
+                                        }
+                                        label="International career development"
+                                        labelPlacement="start"
+                                        sx={{ justifyContent: "space-between", margin:'1rem 0 0 0', borderBottom: "1px solid rgba(0, 0, 0, 0.1)" }}
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                        <Checkbox checked={antoine} onChange={handleCheckbox} name="antoine" />
+                                        }
+                                        label="Professional HR training"
+                                        labelPlacement="start"
+                                        sx={{ justifyContent: "space-between", margin:'1rem 0 0 0', borderBottom: "1px solid rgba(0, 0, 0, 0.1)" }}
+                                    />
+                                </FormGroup>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <TextField fullWidth id="standard-basic" label="Company" variant="outlined" margin="normal" />
+                            <TextField fullWidth id="standard-basic" label="Phone" variant="outlined" margin="normal" />
+                            
+                            <FormLabel component="legend" sx={{ mt: 4 }}>Tell us what you need help with. The purpose of this project and problems we are solving. Give us the details.</FormLabel>
+                            <TextField fullWidth multiline minRows="11" sx={{ mt: 4 }} id="standard-basic" label="Message" variant="outlined" margin="normal" />
+                        </Grid>
+                    </Grid>
 
-                        <ListItem alignItems="flex-start">
-                            <ListItemIcon>
-                                <MailOutlineIcon />
-                            </ListItemIcon>
-                            <ListItemText
-                                primary="Email Address"
-                                secondary={
-                                    <Typography
-                                        sx={{ display: 'inline' }}
-                                        component="span"
-                                        variant="body2"
-                                        color="text.primary"
-                                    >
-                                        info@educar-consultancy.com <br />
-                                        support@educar-consultancy.com
-                                    </Typography>
-                                }
-                            />
-                        </ListItem>
-
-                        <Divider variant="inset" component="li" />
-
-                        <ListItem alignItems="flex-start">
-                            <ListItemIcon>
-                                <LocationOnIcon />
-                            </ListItemIcon>
-                            <ListItemText
-                                primary="Location"
-                                secondary={
-                                    <Typography
-                                        sx={{ display: 'inline' }}
-                                        component="span"
-                                        variant="body2"
-                                        color="text.primary"
-                                    >
-                                        1104 Alabang Business Tower, Madrigal Business Park
-                                        1216 Acacia Ave., Alabang, Muntinlupa City, 1780
-                                    </Typography>
-                                }
-                            />
-                        </ListItem>
-                    </List>
-                </Grid>
-            </Grid>
+                    <Button variant="contained" size="large" color="secondary" sx={{ marginTop: "1rem" }}>
+                        Send Message
+                    </Button>
+                </Box>
+            }
         </Container>
         </>
     )

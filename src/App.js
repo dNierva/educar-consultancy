@@ -101,8 +101,8 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
-			<Navbar />
 			<Router>
+				<Navbar />
 				<Routes>
 					<Route path='/' exact element={<Home />} />
 					<Route path='/projects' element={<Projects />} />

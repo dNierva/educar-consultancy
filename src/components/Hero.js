@@ -10,7 +10,7 @@ import {
 
 import heroSmall from '../assets/hero-sm.jpg';
 import heroMedium from '../assets/hero-md.jpg';
-import heroLarge from '../assets/hero-lg.jpg';
+import heroLarge from '../assets/hero_lg.jpg';
 
 const Wrap = styled.div`
     background: linear-gradient(0deg, rgba(236, 240, 241, 0.8), rgba(189, 195, 199, 0.6) ), url(${ heroSmall });
