@@ -60,9 +60,13 @@ const Content = styled.div`
 function Contact () {
     const [formType, setFormType] = useState('general');
     const [state, setState] = React.useState({
-        gilad: false,
-        jason: false,
-        antoine: false,
+        consulting: false,
+        outsourcing: false,
+        software: false,
+        web: false,
+        careerdevelopment: false,
+        hrtraining: false
+
     });
 
     const handleCheckbox = (event) => {
@@ -76,8 +80,6 @@ function Contact () {
     const error = [gilad, jason, antoine].filter((v) => v).length < 1;
 
     const handleChange = (event, newFormType) => {
-        console.log("event: ", event);
-        console.log("newFormType: ", newFormType);
         setFormType(newFormType);
     };
 
@@ -213,7 +215,7 @@ function Contact () {
                                 <FormGroup>
                                     <FormControlLabel
                                         control={
-                                        <Checkbox checked={gilad} onChange={handleCheckbox} name="gilad" />
+                                            <Checkbox checked={gilad} onChange={handleCheckbox} name="consulting" />
                                         }
                                         label="Consulting and project management"
                                         labelPlacement="start"
@@ -221,7 +223,7 @@ function Contact () {
                                     />
                                     <FormControlLabel
                                         control={
-                                        <Checkbox checked={jason} onChange={handleCheckbox} name="jason" />
+                                            <Checkbox checked={jason} onChange={handleCheckbox} name="outsourcing" />
                                         }
                                         label="Professional outsourcing"
                                         labelPlacement="start"
@@ -229,7 +231,7 @@ function Contact () {
                                     />
                                     <FormControlLabel
                                         control={
-                                        <Checkbox checked={antoine} onChange={handleCheckbox} name="antoine" />
+                                            <Checkbox checked={antoine} onChange={handleCheckbox} name="software" />
                                         }
                                         label="Software development"
                                         labelPlacement="start"
@@ -237,7 +239,7 @@ function Contact () {
                                     />
                                     <FormControlLabel
                                         control={
-                                        <Checkbox checked={antoine} onChange={handleCheckbox} name="antoine" />
+                                            <Checkbox checked={antoine} onChange={handleCheckbox} name="web" />
                                         }
                                         label="Web design &amp; development"
                                         labelPlacement="start"
@@ -245,7 +247,7 @@ function Contact () {
                                     />
                                     <FormControlLabel
                                         control={
-                                        <Checkbox checked={antoine} onChange={handleCheckbox} name="antoine" />
+                                            <Checkbox checked={antoine} onChange={handleCheckbox} name="careerdevelopment" />
                                         }
                                         label="International career development"
                                         labelPlacement="start"
@@ -253,7 +255,7 @@ function Contact () {
                                     />
                                     <FormControlLabel
                                         control={
-                                        <Checkbox checked={antoine} onChange={handleCheckbox} name="antoine" />
+                                            <Checkbox checked={antoine} onChange={handleCheckbox} name="hrtraining" />
                                         }
                                         label="Professional HR training"
                                         labelPlacement="start"

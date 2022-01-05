@@ -43,6 +43,17 @@ function Navbar() {
         >
             <List>
                 <ListItem button>
+                    <Link to="/" style={linkStyle}>
+                        <ListItemText 
+                            primary="Home"
+                            sx={{
+                                textTransform: 'uppercase',
+                                color: '#2980B9',
+                            }} 
+                        />
+                    </Link>
+                </ListItem>
+                <ListItem button>
                     <Link to="/m3systec" style={linkStyle}>
                         <ListItemText 
                             primary="M3 Systec"

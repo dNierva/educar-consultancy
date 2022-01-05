@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
     Typography,
@@ -91,7 +92,7 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="secondary">
+                                <Button component={Link} to="/projects/1" size="small" color="secondary">
                                     View Project
                                 </Button>
                             </CardActions>
@@ -121,7 +122,7 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="secondary">
+                                <Button component={Link} to="/projects/1" size="small" color="secondary">
                                     View Project
                                 </Button>
                             </CardActions>
@@ -151,7 +152,7 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="secondary">
+                                <Button component={Link} to="/projects/1" size="small" color="secondary">
                                     View Project
                                 </Button>
                             </CardActions>
@@ -181,7 +182,7 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="secondary">
+                                <Button component={Link} to="/projects/1" size="small" color="secondary">
                                     View Project
                                 </Button>
                             </CardActions>
@@ -211,7 +212,7 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="secondary">
+                                <Button component={Link} to="/projects/1" size="small" color="secondary">
                                     View Project
                                 </Button>
                             </CardActions>
@@ -241,7 +242,7 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="secondary">
+                                <Button component={Link} to="/projects/1" size="small" color="secondary">
                                     View Project
                                 </Button>
                             </CardActions>

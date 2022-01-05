@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import {
     Container,
     Grid,
     Typography,
-    Box,
+    Box
 } from '@mui/material';
 
 const Ul = styled.ul`
@@ -35,10 +36,10 @@ function Footer () {
 
                     <Grid item xs={8} sm={6} md={4}>
                         <Ul>
-                            <Li>Home</Li>
-                            <Li>Projects</Li>
-                            <Li>About</Li>
-                            <Li>Contact</Li>
+                            <Li><Link to="/">Home</Link></Li>
+                            <Li><Link to="/projects">Projects</Link></Li>
+                            <Li><Link to="/about">About</Link></Li>
+                            <Li><Link to="/contact">Contact</Link></Li>
                         </Ul>
                     </Grid>
                 </Grid>

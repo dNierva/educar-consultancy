@@ -111,10 +111,10 @@ function App() {
 					<Route path='/about' element={<About />} />
 					<Route path='/contact' element={<Contact />} />
 				</Routes>
+			
+				<SiteInfo />
+				<Footer />
 			</Router>
-			<SiteInfo />
-			<Footer />
-		
 		</ThemeProvider>
 	);
 }

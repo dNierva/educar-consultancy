@@ -137,6 +137,18 @@ const GlobalStyle = createGlobalStyle`
         color: rgb(var(--primary-500));
         line-height: 1.5;
     }
+
+    a:link,
+    a:visited,
+    a:active {
+        color: var(--secondary-500);
+        text-decoration: none;
+    }
+
+    a:hover {   
+        text-decoration: underline;
+        color: var(--secondary-400);
+    }
 `;
 
 export default GlobalStyle;
