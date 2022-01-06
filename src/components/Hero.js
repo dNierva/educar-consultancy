@@ -24,6 +24,7 @@ const Wrap = styled.div`
 
     @media screen and (min-width: 1280px) {
         background: url(${ heroLarge });
+        background-position: bottom center;
     }
 `;
 
@@ -33,9 +34,9 @@ const Content = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    @media screen and (min-width: 1280px) {
-        padding-top: 8rem;
-    }
+    // @media screen and (min-width: 1280px) {
+    //     padding-top: 8rem;
+    // }
 `;
 
 function Hero () {
