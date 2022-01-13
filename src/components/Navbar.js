@@ -127,14 +127,13 @@ function Navbar() {
             <AppBar position="fixed">
                 <Container maxWidth="lg">
                     <Toolbar variant="dense" disableGutters="true">
-                        <Typography variant="h6" color="inherit" component="div" sx={{ flexGrow: 1 }}>
-                            EDUCAR
-                        </Typography>
+                        <div style={{ flexGrow: 1 }}>
+                            <img src="img/navbar_logo.svg" alt="EDUCAR" />
+                        </div>
 
-                        <Typography variant="overline" display="block" style={{ cursor: 'pointer' }} onClick={handleDrawerOpen}>MENU</Typography>
-                        {/* <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-                            <MenuIcon />
-                        </IconButton> */}
+                        <Typography variant="overline" display="block" style={{ cursor: 'pointer' }} onClick={handleDrawerOpen}>
+                            MENU
+                        </Typography>
                         <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
                             <MenuIcon />
                         </IconButton>
