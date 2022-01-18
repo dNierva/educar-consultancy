@@ -46,6 +46,11 @@ const Content = styled.div`
     }
 `;
 
+const linkStyle = {
+    textDecoration: "none",
+    color: '#3498DB'
+};
+
 function Projects () {
     return (
         <>
@@ -92,7 +97,13 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button component={Link} to="/projects/1" size="small" color="secondary">
+                                <Button
+                                    style={ linkStyle } 
+                                    component={Link} 
+                                    to="/projects/1" 
+                                    size="small" 
+                                    color="secondary"
+                                >
                                     View Project
                                 </Button>
                             </CardActions>
@@ -122,7 +133,13 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button component={Link} to="/projects/1" size="small" color="secondary">
+                                <Button
+                                    style={ linkStyle } 
+                                    component={Link} 
+                                    to="/projects/1" 
+                                    size="small" 
+                                    color="secondary"
+                                >
                                     View Project
                                 </Button>
                             </CardActions>
@@ -152,7 +169,13 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button component={Link} to="/projects/1" size="small" color="secondary">
+                                <Button
+                                    style={ linkStyle } 
+                                    component={Link} 
+                                    to="/projects/1" 
+                                    size="small" 
+                                    color="secondary"
+                                >
                                     View Project
                                 </Button>
                             </CardActions>
@@ -182,7 +205,13 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button component={Link} to="/projects/1" size="small" color="secondary">
+                                <Button
+                                    style={ linkStyle } 
+                                    component={Link} 
+                                    to="/projects/1" 
+                                    size="small" 
+                                    color="secondary"
+                                >
                                     View Project
                                 </Button>
                             </CardActions>
@@ -212,7 +241,13 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button component={Link} to="/projects/1" size="small" color="secondary">
+                                <Button
+                                    style={ linkStyle } 
+                                    component={Link} 
+                                    to="/projects/1" 
+                                    size="small" 
+                                    color="secondary"
+                                >
                                     View Project
                                 </Button>
                             </CardActions>
@@ -242,7 +277,13 @@ function Projects () {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button component={Link} to="/projects/1" size="small" color="secondary">
+                                <Button
+                                    style={ linkStyle } 
+                                    component={Link} 
+                                    to="/projects/1" 
+                                    size="small" 
+                                    color="secondary"
+                                >
                                     View Project
                                 </Button>
                             </CardActions>

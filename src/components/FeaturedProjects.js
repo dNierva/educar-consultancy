@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import {
     Typography,
     Container,
@@ -11,6 +12,11 @@ import {
     CardActionArea,
     CardActions
 } from '@mui/material';
+
+const linkStyle = {
+    textDecoration: "none",
+    color: '#3498DB'
+};
 
 const ViewAllButton = styled.div`
     display: flex;
@@ -119,7 +125,13 @@ function FeaturedProjects () {
             </Grid>{/*** = GRID CONTAINER */}
 
             <ViewAllButton>
-                <Button variant="outlined" size="large" color="secondary">
+                <Button
+                    style={ linkStyle } 
+                    component={ Link } 
+                    to="/projects" 
+                    variant="outlined" 
+                    size="large"
+                >
                     View All Projects
                 </Button>
             </ViewAllButton>
