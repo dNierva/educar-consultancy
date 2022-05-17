@@ -54,7 +54,7 @@ function Navbar() {
                     </Link>
                 </ListItem>
                 <ListItem button>
-                    <Link to="/m3systec" style={linkStyle}>
+                    <Link to="https://m3systec.com" style={linkStyle}>
                         <ListItemText 
                             primary="M3 Systec"
                             sx={{
